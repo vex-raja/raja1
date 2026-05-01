@@ -1932,7 +1932,9 @@
   <script>
     /*login system*/
   
-   
+   if (localStorage.getItem("access") !== "true") {
+  window.location.href = "login.html";
+}
 
 
 
