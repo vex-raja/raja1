@@ -1,0 +1,2262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Raja Club Athletic - TADAKIR</title>
+  <!-- Android -->
+  <meta name="theme-color" content="#000000">
+
+  <!-- iPhone -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Raja Club Athletic - TADAKIR">
+
+  <!-- Icons -->
+  <link rel="icon" href="logo-app.png">
+  <link rel="apple-touch-icon" href="logo-app.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Noto+Sans+Arabic:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Share+Tech+Mono&family=Noto+Sans+Arabic:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #1a2e3d;
+      --bg2:       #152638;
+      --green:     #1b7a4c;
+      --green-btn: #196e44;
+      --green-light:#20a05a;
+      --gold:      #c9a227;
+      --gold2:     #e8b830;
+      --white:     #ffffff;
+      --gray:      #7a90a8;
+      --text:      #ccd8e5;
+      --bottom-h:  64px;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+
+    /*  login  */
+
+    
+
+
+
+
+    /* ─── TOP BAR ─── */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: 70px;
+  /* Diagonal gradient: top-right to bottom-left */
+  background: linear-gradient(225deg, #0D8176 0%, #0D352D 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  /* No border for topbar as requested */
+  border: none;
+}
+
+.topbar-logo img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+}
+
+.topbar-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 46px;
+  height: 46px;
+  background-color: #189293;
+  /* Border remains only for icons */
+  border: 2px solid #33ADAF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.icon-btn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+.icon-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: white;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+    /* ─── MAIN SCROLL AREA ─── */
+    main {
+      margin-top: 70px;
+      margin-bottom: 0;
+      padding: 20px 14px 0;
+    }
+
+   .banner-raja {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    
+
+
+    /* ─── SUIVRE BUTTON ─── */
+    .suivre-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+
+    .btn-suivre {
+      padding: 14px 60px;
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      border-radius: 12px;
+      color: #16816f;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: all 0.25s;
+    }
+    .btn-suivre:hover,
+    .btn-suivre.active {
+      background: hsl(172, 62%, 30%);
+      border-color: hsl(172, 62%, 30%);
+    }
+
+    /* ─── PRESENTATION ─── */
+    .section-presentation {
+      padding: 0 4px;
+      margin-bottom: 28px;
+    }
+
+    .section-presentation h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .section-presentation p {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: var(--text);
+      text-align: left;
+    }
+
+
+    /* ─── SPORTS SECTION ─── */
+    .section-block {
+      margin-bottom: 28px;
+    }
+
+    .section-block-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--green);
+      display: inline-block;
+    }
+
+    .sports-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .sport-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 14px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .sport-item:hover {
+      background: rgba(26,122,74,0.15);
+      border-color: var(--green);
+    }
+
+    .sport-item-icon { font-size: 1.4rem; }
+    .sport-item-name { font-size: 0.88rem; font-weight: 600; }
+
+    /* ─── AVANTAGES ─── */
+    .avantages-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .avantage-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 16px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avantage-icon {
+      width: 40px; height: 40px;
+      background: rgba(26,122,74,0.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .avantage-text h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+    .avantage-text p  { font-size: 0.78rem; color: var(--gray); line-height: 1.4; }
+
+    /* ─── BOTTOM NAV ─── */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: var(--bottom-h);
+      background: #101727;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      z-index: 200;
+    }
+
+    .nav-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+      padding: 8px 0;
+      color: var(--gray);
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+
+    .nav-item.active { color: var(--green-light); }
+    .nav-item:hover  { color: var(--green-light); }
+
+    .nav-item svg {
+      width: 24px; height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .nav-item span {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── PAGES (tab switching) ─── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* pannel timer */
+    /* ── MATCH CARD ── */
+  .match-card {
+    background: #333C4B;
+    border-radius: 22px;
+    padding: 0;
+    margin-bottom: 28px;
+    border: 1px solid #414B57;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: relative;
+  }
+  .match-card::before {
+    content: '';
+    display: block;
+    height: 2px;
+    background: linear-gradient(to right, #265C4F 0%, #7BB4AB 50%, #265C4F 100%);
+  }
+  .match-card-inner {
+    padding: 22px 22px 20px;
+  }
+
+  .match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+
+  .match-team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .match-team img {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  }
+
+  .match-team-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .match-center {
+    flex: 1.3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .match-vs {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2ec4a0;
+    letter-spacing: 0.12em;
+    line-height: 1;
+  }
+
+  .match-date {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.88);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .match-venue {
+    font-size: 0.67rem;
+    color: #2ec4a0;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.45;
+  }
+
+  /* Divider */
+  .match-divider {
+    height: 2px;
+    background: #202938;
+    border: none;
+    margin: 20px 0;
+  }
+
+/* IMPORT FONT */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap');
+
+/* Countdown */
+.match-countdown {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+/* Blocks */
+.countdown-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 72px;
+}
+
+/* Numbers */
+.countdown-num {
+  font-family: 'Rajdhani', sans-serif; /* UPDATED */
+  font-size: 3.2rem; /* bigger */
+  font-weight: 600; /* cleaner than 700 */
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  transition: 0.2s ease;
+}
+
+/* Separator (: ) */
+.countdown-sep {
+  font-family: 'Rajdhani', sans-serif; /* UPDATED */
+  font-size: 3.2rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.30);
+  line-height: 1;
+  padding: 0 6px;
+  align-self: flex-start;
+}
+
+/* Labels (J H M S) */
+.countdown-label {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.14em;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  .countdown-num { font-size: 2rem; }
+  .countdown-sep { font-size: 2rem; padding: 0 3px; }
+  .countdown-block { min-width: 46px; }
+}
+
+  /* Reserve button */
+.btn-reserver {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 17px;
+  background: linear-gradient(135deg, #187465 0%, #0E433B 100%);
+  border: none;
+  border-radius: 14px;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  /* Added system fonts to prioritize text rendering over emojis */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  /* Forces text-style rendering for symbols */
+  font-variant-ligatures: no-common-ligatures;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-reserver:hover {
+  background: linear-gradient(135deg, #1e9080 0%, #125248 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+}
+
+.btn-reserver:active {
+  transform: translateY(0);
+}
+
+.btn-reserver svg {
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+  /* Prochains matchs title */
+  .prochains-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 14px;
+  }
+
+  .prochains-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+  }
+
+  .prochain-card-v2 {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 20px;
+    padding: 22px 18px 18px;
+  }
+
+  .prochain-card-v2 .teams-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+
+  .prochain-card-v2 .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .prochain-card-v2 .team img {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 10px rgba(0,0,0,0.4));
+  }
+
+  .prochain-card-v2 .team-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .prochain-card-v2 .team-role {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+  }
+
+  .prochain-card-v2 .center-info {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding-top: 12px;
+  }
+
+  .prochain-card-v2 .vs {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1D9E8A;
+    letter-spacing: 0.1em;
+  }
+
+  .prochain-card-v2 .match-date {
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .prochain-card-v2 .match-venue {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .prochain-card-v2 .btn-reserver {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #16816e 0%, #084035 100%);
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: all 0.25s;
+  }
+
+  .prochain-card-v2 .btn-reserver:hover {
+    background: linear-gradient(135deg, #1a9880 0%, #0a4f42 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+
+  .prochain-card-v2 .btn-reserver svg {
+    width: 52px;
+    height: 52px;
+    stroke: #ffffff;
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* profile icon */
+  .icon-btn-profile {
+  position: relative;
+  width: 82px;
+  height: 59px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+}
+
+.icon-btn-profile img {
+  position: absolute;
+
+  top: -4px;   /* move up/down */
+  left: 29px; /* move left/right */
+
+  width: 56px; /* scale size */
+}
+
+/* scan button */
+
+/* ─────────────────────────────
+   SCAN BUTTON
+───────────────────────────── */
+
+
+/* ─────────────────────────────
+   SCAN BUTTON
+   z-index 201 → above nav (100-200), BELOW modal (9999)
+───────────────────────────── */
+.scan-btn-wrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  bottom: 15px;
+  z-index: 201;   /* ✅ button shows above nav bar */
+}
+
+.scan-circle-btn {
+  width: 64px;
+  height: 64px;
+  margin-top: -28px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.scan-circle-btn img { width:100%; height:100%; object-fit:contain; border-radius:50%; display:block; }
+.scan-circle-btn:hover { transform: scale(1.08); }
+.scan-label { font-size: 0.65rem; color: rgba(255,255,255,0.5); font-family: 'Inter', sans-serif; }
+
+.scan-tooltip {
+  position: absolute; top: -48px; left: 50%;
+  transform: translateX(-50%);
+  background: #1D7A6D; color: #fff;
+  font-size: 0.72rem; font-weight: 700; font-family: 'Inter', sans-serif;
+  white-space: nowrap; padding: 6px 14px; border-radius: 20px;
+  pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  animation: floatTooltip 2.4s ease-in-out infinite;
+}
+@keyframes floatTooltip {
+  0%,100% { transform: translateX(-50%) translateY(0px); }
+  50%      { transform: translateX(-50%) translateY(-6px); }
+}
+.scan-tooltip::after {
+  content: ''; position: absolute; bottom: -6px; left: 50%;
+  transform: translateX(-50%); border-width: 6px 6px 0;
+  border-style: solid; border-color: #1D7A6D transparent transparent;
+}
+
+
+/* ─────────────────────────────
+   MODAL OVERLAY
+   z-index 9999 → WHITE PAGE slides above the scan button
+   But the modal card stops SHORT of full height → header stays visible above
+───────────────────────────── */
+.ticket-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;        /* ✅ white page = layer 1 when open */
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0,0,0,0);
+  transition: background 0.3s;
+}
+.ticket-modal-overlay.open {
+  display: flex;
+  background: rgba(0,0,0,0.45);  /* dim behind the sheet */
+}
+.ticket-modal-overlay.closing {
+  background: rgba(0,0,0,0) !important;
+}
+
+/* WHITE CARD — full screen, nothing above it */
+.ticket-modal {
+  background: #fff;
+  border-radius: 0;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;      /* full screen */
+  overflow-y: auto;
+  position: relative;
+  padding-top: 56px;
+  animation: sheetUp .35s cubic-bezier(.32,1,.23,1) forwards;
+}
+.ticket-modal-overlay.closing .ticket-modal {
+  animation: sheetDown .25s ease forwards;
+}
+@keyframes sheetUp   { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes sheetDown { from { transform: translateY(0); }    to { transform: translateY(100%); } }
+
+/* ── ✕ Close — top LEFT ── */
+.ticket-close {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 480px;
+  width: 100%;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding-left: 20px;
+  background: #fff;
+  border: none; cursor: pointer;
+  color: #444; font-size: 1.3rem;
+  pointer-events: auto;
+}
+
+/* ── Date + venue ── */
+.ticket-match-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #aaa;
+  padding: 0 20px 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Teams ── */
+.ticket-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 22px;
+}
+.ticket-team {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  flex: 1;
+}
+.ticket-team img { width: 72px; height: 72px; object-fit: contain; }
+.ticket-team-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem; font-weight: 700; color: #111; text-transform: uppercase;
+}
+.ticket-center {
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+  flex: 1.2;
+}
+.ticket-dans { font-size: .8rem; color: #999; font-family: 'Inter', sans-serif; }
+.ticket-time {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.8rem; font-weight: 700; color: #111; line-height: 1.1;
+}
+
+/* ── QR block — no arrows, white bg, shadow ── */
+.ticket-qr-section { padding: 0 20px 14px; }
+.ticket-qr-wrap {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+.ticket-qr-wrap img.qr-img {
+  width: 210px; height: 210px; object-fit: contain; display: block;
+}
+
+/* ── Progress bar ── */
+.ticket-progress {
+  margin: 0 20px 8px;
+  height: 5px; background: #e5e5e5;
+  border-radius: 4px; overflow: hidden;
+}
+.ticket-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #22c17a, #084035);
+  border-radius: 4px; width: 100%;
+  transition: width 1s linear;
+}
+
+/* ── Timer — full line pulses ── */
+.ticket-qr-timer {
+  text-align: center;
+  font-size: 0.88rem; color: #444;
+  font-family: 'Inter', sans-serif;
+  margin: 0 0 16px;
+  animation: pulseAll 1.4s ease-in-out infinite;
+}
+.ticket-qr-timer .timer-num { color: #22c17a; font-weight: 700; }
+@keyframes pulseAll {
+  0%,100% { opacity: 1;    transform: scale(1);    }
+  50%      { opacity: 0.4; transform: scale(0.96); }
+}
+
+/* ── Details grid — matches screenshot: label top, value bold below, center aligned ── */
+.ticket-details {
+  background: #f1f4f3;
+  border-radius: 14px;
+  margin: 0 20px 18px;
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 10px;
+}
+.ticket-detail-item {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+/* Siège — centered, spans full width */
+.ticket-detail-siege {
+  grid-column: span 2;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+.ticket-detail-label { font-size: .7rem; color: #aaa; font-family: 'Inter', sans-serif; }
+.ticket-detail-value { font-size: .95rem; font-weight: 700; color: #111; font-family: 'Inter', sans-serif; }
+
+/* ── Transfer button — dark green, full width ── */
+.ticket-transfer-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: calc(100% - 40px);
+  margin: 0 20px 14px;
+  padding: 16px;
+  background: #1a7a4a;
+  border: none; border-radius: 14px;
+  color: #fff; font-size: 1rem; font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.18s;
+}
+.ticket-transfer-btn:hover { opacity: 0.88; }
+.ticket-transfer-btn svg {
+  width: 20px; height: 20px;
+  stroke: #fff; fill: none; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* ── Footer note ── */
+.ticket-footer-note {
+  text-align: center; padding: 0 20px 32px;
+}
+.ticket-footer-note .line1 {
+  font-size: 0.88rem; font-weight: 700; color: #22c17a; margin-bottom: 3px;
+  font-family: 'Inter', sans-serif;
+}
+.ticket-footer-note .line2 {
+  font-size: 0.78rem; color: #bbb; font-family: 'Inter', sans-serif;
+}
+
+
+/*          waaaaaaaaa hnaaaaaaaa       */
+
+/* Title */
+.sports-title {
+  text-align: center;
+  color: white;
+  margin-top: 15px;
+}
+
+/* Tabs */
+.sports-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px 0;
+}
+
+.tab {
+  color: #aaa;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tab.active {
+  color: #00d4a4;
+  border-bottom: 2px solid #00d4a4;
+  padding-bottom: 5px;
+}
+
+/* Content */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Card */
+.prochain-card-v2 {
+  background: #1c2b3a;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+  color: white;
+}
+
+/* Teams */
+.teams-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team {
+  text-align: center;
+}
+
+.team img {
+  width: 60px;
+}
+
+.team-name {
+  display: block;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+/* Center */
+.center-info {
+  text-align: center;
+}
+
+.vs {
+  background: #2b3f55;
+  padding: 8px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.match-date {
+  opacity: 0.7;
+}
+
+.match-time {
+  color: #00d4a4;
+  font-weight: bold;
+}
+
+/* Button */
+.btn-reserver {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #0D4238, #167263);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Loader (spinner green) */
+.loader {
+  border: 5px solid #1c2b3a;
+  border-top: 5px solid #00d4a4;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 50px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+/*         profile          */
+/* HEADER */
+.profile-header {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: auto;
+  border: 2px solid #00d4a4;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.username {
+  margin-top: 10px;
+}
+
+.user-email {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* STATS */
+.profile-stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 25px 0;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 20px;
+  color: #00d4a4;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* TICKET */
+.ticket-card {
+  background: #1c2b3a;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+}
+
+.match-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.vs {
+  background: #2b3f55;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.match-info {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.btn-ticket {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #00c896, #00ffb3);
+  color: white;
+  cursor: pointer;
+}
+
+/* MENU */
+.profile-menu {
+  margin: 20px;
+}
+
+.menu-item {
+  padding: 15px;
+  background: #1c2b3a;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.logout {
+  color: #ff4d4d;
+}
+
+
+
+
+
+
+
+
+
+.parent-container {
+  text-align: center;
+}
+
+.panel-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+
+
+/*  THE NOTIFICATION PANNEL  */
+.newsletter-panel {
+    background: #1a2535;
+    border-radius: 20px;
+    padding: 2.4rem 2rem 2rem;
+    max-width: 420px;
+    width: 100%;
+    margin: 28px auto 0;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,.05),
+      0 24px 60px rgba(0,0,0,.45);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Cairo', sans-serif;
+    animation: nl-fadeUp .5s ease both;
+  }
+ 
+  /* subtle grain overlay */
+  .newsletter-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 0;
+  }
+ 
+  .newsletter-panel .panel-inner {
+    position: relative;
+    z-index: 1;
+  }
+ 
+  /* ── Header row ── */
+  .newsletter-panel .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+  }
+ 
+  .newsletter-panel .bell-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #143336;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+ 
+  .newsletter-panel .bell-wrap svg {
+    width: 26px;
+    height: 26px;
+    stroke: #1B7F6F;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+ 
+  .newsletter-panel .panel-title {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.3;
+    letter-spacing: -.01em;
+    margin: 0;
+  }
+ 
+  /* ── Description ── */
+  .newsletter-panel .panel-desc {
+    font-size: .93rem;
+    color: #8ea4ba;
+    line-height: 1.65;
+    margin-bottom: 1.6rem;
+  }
+ 
+  /* ── Input ── */
+  .newsletter-panel .input-wrap {
+    position: relative;
+    margin-bottom: .85rem;
+  }
+ 
+  .newsletter-panel .input-wrap .mail-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    stroke: #5c7a96;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+    transition: stroke .25s;
+    z-index: 1;
+  }
+ 
+  .newsletter-panel .email-input {
+    width: 100%;
+    background: #243042;
+    border: 1.5px solid #2e3f54;
+    border-radius: 12px;
+    padding: .85rem 1rem .85rem 2.9rem;
+    font-family: 'Cairo', sans-serif;
+    font-size: .93rem;
+    color: #e2eaf3;
+    outline: none;
+    transition: border-color .25s, background .25s;
+  }
+ 
+  .newsletter-panel .email-input::placeholder { color: #4d6880; }
+ 
+  .newsletter-panel .email-input:focus {
+    border-color: #1B7F6F;
+    background: #263347;
+  }
+ 
+  .newsletter-panel .input-wrap:focus-within .mail-icon { stroke: #1B7F6F; }
+ 
+  /* ── Submit button ── */
+  .newsletter-panel .subscribe-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    padding: .9rem 1rem;
+    background: linear-gradient(135deg, #167D6A 0%, #084438 100%);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: filter .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 6px 24px rgba(8,68,56,.45);
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .newsletter-panel .subscribe-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+ 
+  .newsletter-panel .subscribe-btn:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 8px 32px rgba(22,125,106,.5);
+  }
+ 
+  .newsletter-panel .subscribe-btn:active { transform: scale(.98); }
+ 
+  .newsletter-panel .subscribe-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform .3s;
+  }
+ 
+  .newsletter-panel .subscribe-btn:hover svg { transform: translateX(3px) rotate(-10deg); }
+ 
+  /* ── Spinner ── */
+  .newsletter-panel .spinner {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255,255,255,.35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: nl-spin .7s linear infinite;
+  }
+ 
+  .newsletter-panel .subscribe-btn.loading .btn-icon,
+  .newsletter-panel .subscribe-btn.loading .btn-label { display: none; }
+  .newsletter-panel .subscribe-btn.loading .spinner { display: block; }
+ 
+  /* ── Fine print ── */
+  .newsletter-panel .fine-print {
+    text-align: center;
+    font-size: .78rem;
+    color: #4d6880;
+    margin-top: .9rem;
+    letter-spacing: .01em;
+  }
+ 
+  /* ── Success state ── */
+  .newsletter-panel .success-msg {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: .7rem;
+    text-align: center;
+    padding: 1rem 0 .5rem;
+  }
+ 
+  .newsletter-panel .success-msg svg {
+    width: 48px;
+    height: 48px;
+    stroke: #1B7F6F;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+ 
+  .newsletter-panel .success-msg p {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #e2eaf3;
+    margin: 0;
+  }
+ 
+  .newsletter-panel .success-msg span {
+    font-size: .85rem;
+    color: #8ea4ba;
+  }
+ 
+  /* ── Error message ── */
+  .newsletter-panel .error-msg {
+    display: none;
+    font-size: .8rem;
+    color: #f87171;
+    margin-top: -.3rem;
+    margin-bottom: .2rem;
+    padding-left: .2rem;
+  }
+ 
+  /* ── Keyframes ── */
+  @keyframes nl-fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+ 
+  @keyframes nl-spin { to { transform: rotate(360deg); } }
+
+
+
+  /*   THE FOOT   */
+
+.footer {
+  background: linear-gradient(180deg, #0b1a2a, #081420);
+  color: #cbd5e1;
+  text-align: center;
+  padding: 60px 20px calc(var(--bottom-h) + 20px);
+  font-family: "Segoe UI", Arial, sans-serif;
+  width: 100%;
+  margin: 0;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.footer-logo {
+  width: 70px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.footer-title {
+  letter-spacing: 2px;
+  font-size: 14px;
+  color: #9aa6b2;
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background: #2a3a4a;
+  margin: 25px auto;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.small-text {
+  font-size: 12px;
+  color: #7c8b98;
+  letter-spacing: 1px;
+}
+
+.brand-green {
+  color: #00b894;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.brand-white {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 40px;
+  background: #2a3a4a;
+}
+
+.copyright {
+  margin-top: 40px;
+  font-size: 12px;
+  color: #6b7a88;
+}
+
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+
+
+  <!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-logo">
+    <img src="team1.png" alt="Logo">
+  </div>
+
+  <div class="topbar-icons">
+    <!-- 1. Notification Icon -->
+    <button class="icon-btn">
+      <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+    </button>
+
+    <!-- 2. Shop Icon -->
+    <button class="icon-btn">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    </button>
+
+    <!-- 3. Menu Icon -->
+    <button class="icon-btn">
+      <svg viewBox="0 0 24 24"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+
+
+
+
+
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- PAGE: ACCUEIL -->
+    <div class="page active" id="page-accueil">
+
+      <img src="banner.png" alt="banner" class="banner-raja">
+  <br>
+      <!-- Suivre Button off -->
+
+      <!-- Présentation -->
+      <div class="section-presentation">
+        <h2>Présentation du club</h2>
+        <p style="text-align:center">Le Raja Club Athletic, fondé en 1949 à Casablanca, est l'un des clubs les plus emblématiques du Maroc et d'Afrique. Connu pour son style de jeu spectaculaire et ses supporters passionnés.</p>
+      </div>
+
+      <br>
+
+      <!-- PANNEL html-->           
+      <div class="match-card">
+  <div class="match-card-inner">
+
+  <!-- Teams row -->
+  <div class="match-teams">
+    <div class="match-team">
+      <img src="team4.png" alt="Raja" onerror="this.src='raja-logo.svg'">
+      <span class="match-team-name">RAJA</span>
+    </div>
+
+    <div class="match-center">
+      <div class="match-vs">VS</div>
+      <div class="match-date">dim. 03 Mai 2026<br>à 19:00</div>
+      <div class="match-venue">Complexe<br>Sportif<br>Mohammed V</div>
+    </div>
+
+    <div class="match-team">
+      <img src="team3.png" alt="DHJ" onerror="this.style.opacity='0.5'">
+      <span class="match-team-name">DHJ</span>
+    </div>
+  </div>
+
+  <hr class="match-divider">
+
+  <!-- Countdown -->
+  <div class="match-countdown">
+    <div class="countdown-block">
+      <span class="countdown-num" id="cd-days">00</span>
+      <span class="countdown-label">J</span>
+    </div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-block">
+      <span class="countdown-num" id="cd-hours">00</span>
+      <span class="countdown-label">H</span>
+    </div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-block">
+      <span class="countdown-num" id="cd-mins">00</span>
+      <span class="countdown-label">M</span>
+    </div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-block">
+      <span class="countdown-num" id="cd-secs">00</span>
+      <span class="countdown-label">S</span>
+    </div>
+  </div>
+
+  <!-- Reserve button -->
+  <button class="btn-reserver">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 9a1 1 0 1 0 0-2v-1a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v1a1 1 0 1 0 0 2v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 1 0 0-2V9z"/>
+      <line x1="9" y1="4" x2="9" y2="20" stroke-dasharray="2 2"/>
+    </svg>
+    RÉSERVER &#x2197;&#xFE0E;
+</button>
+
+  </div><!-- /match-card-inner -->
+</div>
+
+<!-- ── HTML ── paste where you want the section ── -->
+
+<p class="prochains-title">Prochains matchs</p>
+
+<div class="prochain-card-v2">
+
+  <div class="teams-row">
+
+    <div class="team">
+      <img src="team1.png" alt="Raja">
+      <span class="team-name">RAJA</span>
+      <span class="team-role">Domicile</span>
+    </div>
+
+    <div class="center-info">
+      <div class="vs">VS</div>
+      <div class="match-date">03 mai 2026, 19:00</div>
+      <div class="match-venue">Complexe Sportif Mohammed V à Casablanca</div>
+    </div>
+
+    <div class="team">
+      <img src="team2.png" alt="OCS">
+      <span class="team-name">DHJ</span>
+      <span class="team-role">Extérieur</span>
+    </div>
+
+  </div>
+
+  <button class="btn-reserver">
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M12 8l4 4-4 4M8 12h8"/>
+    </svg>
+    Réserver
+  </button>
+
+</div>
+
+<br>
+
+<!-- ── notification pannel ── -->
+<div class="newsletter-panel" id="newsletterPanel">
+  <div class="panel-inner">
+ 
+    <!-- Header -->
+    <div class="panel-header">
+      <div class="bell-wrap">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+      </div>
+      <h2 class="panel-title">Restez informé des derniers matchs</h2>
+    </div>
+ 
+    <!-- Description -->
+    <p class="panel-desc">
+      Abonnez-vous pour recevoir des alertes exclusives sur les nouveaux matchs et événements à ne pas manquer.
+    </p>
+ 
+    <!-- Form -->
+    <div id="nlFormArea">
+      <div class="input-wrap">
+        <input
+          type="email"
+          class="email-input"
+          id="nlEmailInput"
+          placeholder="Votre adresse e-mail..."
+          autocomplete="email"
+          aria-label="Adresse e-mail"
+        />
+        <svg class="mail-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <polyline points="2,4 12,13 22,4"/>
+        </svg>
+      </div>
+ 
+      <p class="error-msg" id="nlErrorMsg" role="alert">Veuillez entrer une adresse e-mail valide.</p>
+ 
+      <button class="subscribe-btn" id="nlSubscribeBtn" type="button" onclick="nlHandleSubscribe()">
+        <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+        <span class="btn-label">Je m'abonne</span>
+        <div class="spinner"></div>
+      </button>
+ 
+      <p class="fine-print">Alertes matchs uniquement. Désinscription à tout moment.</p>
+    </div>
+ 
+    <!-- Success state -->
+    <div class="success-msg" id="nlSuccessMsg" role="status" aria-live="polite">
+      <svg viewBox="0 0 24 24">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+      <p>Vous êtes abonné !</p>
+      <span>Vous recevrez désormais des alertes pour les prochains matchs.</span>
+    </div>
+ 
+  </div>
+</div>
+
+
+
+<!--sf hna hbes pannel prochain match-->
+
+    </div><!-- /page-accueil -->
+
+   <!-- PAGE: SPORTS -->
+<div class="page" id="page-sports">
+
+
+  <h2 class="sports-title">Matchs</h2>
+
+  <!-- Tabs -->
+  <div class="sports-tabs">
+    <span class="tab active" onclick="showTab('avenir')">À venir</span>
+    <span class="tab" onclick="showTab('historique')">Historique</span>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="sports-content">
+
+    <!-- À VENIR -->
+    <div id="tab-avenir" class="tab-content active">
+
+      <div class="prochain-card-v2">
+        <div class="teams-row">
+          <div class="team">
+            <img src="team1.png">
+            <span class="team-name">RAJA</span>
+          </div>
+
+          <div class="center-info">
+            <div class="vs">VS</div>
+            <div class="match-date">03 mai. 2026</div>
+            <div class="match-time">19:00</div>
+          </div>
+
+          <div class="team">
+            <img src="team2.png">
+            <span class="team-name">DHJ</span>
+          </div>
+        </div>
+
+        <button class="btn-reserver">Réserver →</button>
+      </div>
+
+    </div>
+
+    <!-- HISTORIQUE -->
+    <div id="tab-historique" class="tab-content">
+
+      <div class="loader"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+    <!-- PAGE: AVANTAGES -->
+    <div class="page" id="page-avantages">
+      <div class="section-block">
+        <div class="section-block-title">Avantages</div>
+        <div class="avantages-list">
+          <div class="avantage-item">
+            <div class="avantage-icon">🎟️</div>
+            <div class="avantage-text">
+              <h4>Billets prioritaires</h4>
+              <p>Accès en avant-première aux billets pour tous les matchs du Raja.</p>
+            </div>
+          </div>
+          <div class="avantage-item">
+            <div class="avantage-icon">⭐</div>
+            <div class="avantage-text">
+              <h4>Expérience VIP</h4>
+              <p>Loges premium, rencontres avec les joueurs et accès exclusifs.</p>
+            </div>
+          </div>
+          <div class="avantage-item">
+            <div class="avantage-icon">🛍️</div>
+            <div class="avantage-text">
+              <h4>Boutique officielle</h4>
+              <p>Réductions exclusives sur les produits officiels du club.</p>
+            </div>
+          </div>
+          <div class="avantage-item">
+            <div class="avantage-icon">📱</div>
+            <div class="avantage-text">
+              <h4>Actualités en direct</h4>
+              <p>Notifications push pour les scores, transferts et événements du club.</p>
+            </div>
+          </div>
+          <div class="avantage-item">
+            <div class="avantage-icon">🏟️</div>
+            <div class="avantage-text">
+              <h4>Visites du stade</h4>
+              <p>Tours guidés exclusifs du Stade Mohammed V pour les membres.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: PROFIL -->
+    <div class="page" id="page-profil">
+      <!-- HEADER -->
+  <div class="profile-header">
+    <div class="avatar">
+      <img src="avatar.png" alt="user">
+    </div>
+    <h3 class="username"> ahmed </h3>
+    <span class="user-email">ahmed@gmail.com </span>
+  </div>
+
+  <!-- STATS -->
+  <div class="profile-stats">
+    <div class="stat">
+      <span class="stat-number">3</span>
+      <span class="stat-label">Billets</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">1</span>
+      <span class="stat-label">Match à venir</span>
+    </div>
+  </div>
+
+  <!-- NEXT MATCH -->
+  <div class="ticket-card">
+    <h4>🎟️ Prochain match</h4>
+
+    <div class="match-row">
+      <span>RAJA</span>
+      <span class="vs">VS</span>
+      <span>DHJ</span>
+    </div>
+
+    <div class="match-info">
+      26 avril 2026 - 19:00  
+      <br>
+      Complexe Mohammed V
+    </div>
+
+    <button class="btn-ticket">Voir billet</button>
+  </div>
+
+  <!-- MENU -->
+  <div class="profile-menu">
+
+    <div class="menu-item">📄 Mes billets</div>
+    <div class="menu-item">⚙️ Paramètres</div>
+    <div class="menu-item logout">🚪 Déconnexion</div>
+
+  </div>
+    </div>
+
+  </main>
+<br><br>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <img src="team1.png" alt="Team Logo" class="footer-logo">
+      <p class="footer-title">
+        BILLETTERIE OFFICIELLE · E-TICKET SÉCURISÉ
+      </p>
+      <div class="divider"></div>
+      <div class="footer-info">
+        <div class="left">
+          <p class="small-text">UN PRODUIT</p>
+          <p class="brand-green">TADAKIR</p>
+        </div>
+        <div class="vertical-line"></div>
+        <div class="right">
+          <p class="small-text">DÉVELOPPÉE PAR</p>
+          <p class="brand-white">SONARGES</p>
+        </div>
+      </div>
+      <p class="copyright">
+        © 2026 · SONARGES · Tous droits réservés
+      </p>
+    </div>
+  </footer>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <a class="nav-item active" data-page="accueil" href="#">
+      <!-- Home icon -->
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Accueil</span>
+    </a>
+    <a class="nav-item" data-page="sports" href="#">
+  
+  <!-- Calendar Icon (like image) -->
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round">
+    
+    <!-- outer calendar -->
+    <rect x="3" y="4" width="18" height="17" rx="3"></rect>
+    
+    <!-- top line -->
+    <line x1="3" y1="9" x2="21" y2="9"></line>
+    
+    <!-- pins -->
+    <line x1="8" y1="2" x2="8" y2="6"></line>
+    <line x1="16" y1="2" x2="16" y2="6"></line>
+    
+    <!-- small square inside -->
+    <rect x="13" y="13" width="3" height="3" rx="1"></rect>
+
+  </svg>
+
+  <span>Matchs</span>
+</a>
+</a>
+    <a class="nav-item" data-page="avantages" href="#">
+      <!-- Calendar/ticket icon -->
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Avantages</span>
+    </a>
+    <a class="nav-item" data-page="profil" href="#">
+      <!-- Person icon -->
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profil</span>
+    </a>
+
+    <!-- ── SCAN BUTTON — inside bottom nav center ── -->
+    <div class="scan-btn-wrap">
+      <div class="scan-tooltip">Votre ticket ici !</div>
+      <button class="scan-circle-btn" onclick="openTicketModal()">
+        <img src="button-scan.png" alt="Scanner ticket">
+      </button>
+      <span class="scan-label"></span>
+    </div>
+
+  </nav>
+
+  <script>
+    /*login system*/
+  
+    const API = "http://212.132.120.102:12452";
+
+function getDeviceId() {
+    let device = localStorage.getItem("device_id");
+    if (!device) {
+        device = Math.random().toString(36).substring(2);
+        localStorage.setItem("device_id", device);
+    }
+    return device;
+}
+
+async function checkLogin() {
+    const id = localStorage.getItem("user_id");
+    const device = getDeviceId();
+
+    if (!id) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    const res = await fetch(API + "/check", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ id, device })
+    });
+
+    const data = await res.json();
+
+    if (data.status !== "ok") {
+        localStorage.clear();
+        window.location.href = "login.html";
+    }
+}
+
+checkLogin();
+
+
+
+
+
+
+
+    // ── TAB NAVIGATION ──
+    const navItems = document.querySelectorAll('.nav-item');
+    const pages    = document.querySelectorAll('.page');
+
+    navItems.forEach(item => {
+      item.addEventListener('click', e => {
+        e.preventDefault();
+        const target = item.dataset.page;
+
+        navItems.forEach(n => n.classList.remove('active'));
+        pages.forEach(p => p.classList.remove('active'));
+
+        item.classList.add('active');
+        document.getElementById('page-' + target).classList.add('active');
+
+        window.scrollTo(0, 0);
+      });
+    });
+
+    // ── SUIVRE TOGGLE ──
+    const suivreBtn = document.getElementById('suivreBtn');
+    let following = false;
+    if (suivreBtn) {
+      suivreBtn.addEventListener('click', () => {
+        following = !following;
+        suivreBtn.textContent = following ? '✓ Suivi' : 'Suivre';
+        suivreBtn.classList.toggle('active', following);
+      });
+    }
+
+    // ── THEME TOGGLE ──
+    const themeBtn = document.getElementById('themeBtn');
+    let lightMode = false;
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        lightMode = !lightMode;
+        document.documentElement.style.setProperty('--bg',  lightMode ? '#e8eef4' : '#1b2c3a');
+        document.documentElement.style.setProperty('--bg2', lightMode ? '#d0dce8' : '#162535');
+        document.body.style.color = lightMode ? '#0f1923' : '#ffffff';
+      });
+    }
+
+
+// ── COUNTDOWN ──
+// Match: Sunday 03 May 2026 at 19:00 (Casablanca, UTC+1)
+const matchDate = new Date('2026-05-03T17:00:00+01:00');
+
+function setEl(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+
+function updateCountdown() {
+  const diff = matchDate - Date.now();
+  if (diff <= 0) {
+    ['cd-days','cd-hours','cd-mins','cd-secs','s-cd-days','s-cd-hours','s-cd-mins','s-cd-secs']
+      .forEach(id => setEl(id, '00'));
+    return;
+  }
+  const days  = String(Math.floor(diff / (1000*60*60*24))).padStart(2,'0');
+  const hours = String(Math.floor((diff % (1000*60*60*24)) / (1000*60*60))).padStart(2,'0');
+  const mins  = String(Math.floor((diff % (1000*60*60)) / (1000*60))).padStart(2,'0');
+  const secs  = String(Math.floor((diff % (1000*60)) / 1000)).padStart(2,'0');
+  setEl('cd-days', days);   setEl('s-cd-days', days);
+  setEl('cd-hours', hours); setEl('s-cd-hours', hours);
+  setEl('cd-mins', mins);   setEl('s-cd-mins', mins);
+  setEl('cd-secs', secs);   setEl('s-cd-secs', secs);
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+
+
+
+
+
+
+
+  
+
+  // ── TICKET MODAL JS ──
+  function openTicketModal() {
+    const o = document.getElementById('ticketModal');
+    o.classList.remove('closing');
+    o.classList.add('open');
+    startQrTimer();
+  }
+  function closeTicketModal() {
+    const o = document.getElementById('ticketModal');
+    o.classList.add('closing');
+    setTimeout(() => { o.classList.remove('open','closing'); clearInterval(qrInterval); }, 260);
+  }
+  function closeOnOverlay(e) { if (e.target.id === 'ticketModal') closeTicketModal(); }
+
+  let qrSeconds = 60, qrInterval = null;
+  function startQrTimer() {
+    clearInterval(qrInterval); qrSeconds = 60; updateQrDisplay();
+    qrInterval = setInterval(() => { if(--qrSeconds <= 0) qrSeconds = 60; updateQrDisplay(); }, 1000);
+  }
+  function updateQrDisplay() {
+    const m = Math.floor(qrSeconds/60), s = String(qrSeconds%60).padStart(2,'0');
+    document.getElementById('qrTimer').textContent = m+':'+s;
+    document.getElementById('qrProgress').style.width = ((qrSeconds/60)*100)+'%';
+  }
+
+  function setEl(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+
+function updateCountdown() {
+  const now  = new Date();
+  const diff = matchDate - now;
+
+  if (diff <= 0) {
+    ['cd-days','cd-hours','cd-mins','cd-secs',
+     's-cd-days','s-cd-hours','s-cd-mins','s-cd-secs']
+      .forEach(id => setEl(id, '00'));
+    return;
+  }
+
+  const days  = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2,'0');
+  const hours = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2,'0');
+  const mins  = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2,'0');
+  const secs  = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2,'0');
+
+  setEl('cd-days', days);   setEl('s-cd-days', days);
+  setEl('cd-hours', hours); setEl('s-cd-hours', hours);
+  setEl('cd-mins', mins);   setEl('s-cd-mins', mins);
+  setEl('cd-secs', secs);   setEl('s-cd-secs', secs);
+}
+
+function showTab(tab) {
+
+  // reset tabs
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+
+  // activate selected
+  document.querySelector(`[onclick="showTab('${tab}')"]`).classList.add("active");
+  document.getElementById("tab-" + tab).classList.add("active");
+
+}
+
+
+  /*  notification pannel  */
+   function nlHandleSubscribe() {
+    const input  = document.getElementById('nlEmailInput');
+    const btn    = document.getElementById('nlSubscribeBtn');
+    const errMsg = document.getElementById('nlErrorMsg');
+    const email  = input.value.trim();
+ 
+    // Validate
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errMsg.style.display = 'block';
+      input.style.borderColor = '#f87171';
+      input.focus();
+      return;
+    }
+ 
+    errMsg.style.display = 'none';
+    input.style.borderColor = '';
+ 
+    // Loading
+    btn.classList.add('loading');
+    btn.disabled = true;
+ 
+    // ── Replace setTimeout with your real API call ──
+    setTimeout(() => {
+      btn.classList.remove('loading');
+      nlShowSuccess();
+ 
+      // fetch('/api/subscribe', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ email })
+      // })
+      // .then(r => r.json())
+      // .then(() => { btn.classList.remove('loading'); nlShowSuccess(); })
+      // .catch(() => { btn.classList.remove('loading'); btn.disabled = false; });
+ 
+    }, 1400);
+  }
+ 
+  function nlShowSuccess() {
+    document.getElementById('nlFormArea').style.display = 'none';
+    const s = document.getElementById('nlSuccessMsg');
+    s.style.display = 'flex';
+    s.style.animation = 'nl-fadeUp .4s ease both';
+  }
+ 
+  document.getElementById('nlEmailInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') nlHandleSubscribe();
+  });
+ 
+  document.getElementById('nlEmailInput').addEventListener('input', function() {
+    document.getElementById('nlErrorMsg').style.display = 'none';
+    this.style.borderColor = '';
+  });
+
+
+  </script>
+
+  <!-- ── TICKET MODAL ── -->
+  <div class="ticket-modal-overlay" id="ticketModal" onclick="closeOnOverlay(event)">
+    <div class="ticket-modal">
+
+      <button class="ticket-close" onclick="closeTicketModal()">✕</button>
+
+      <div class="ticket-match-meta">
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="ticket-teams">
+        <div class="ticket-team">
+          <img src="team4.png" alt="Raja">
+          <span class="ticket-team-name">RAJA</span>
+        </div>
+        <div class="ticket-center">
+          <span class="ticket-dans">Aujourd'hui</span>
+          <span class="ticket-time">19:00</span>
+        </div>
+        <div class="ticket-team">
+          <img src="team3.png" alt="IRT">
+          <span class="ticket-team-name">DHJ</span>
+        </div>
+      </div>
+
+      <div class="ticket-qr-section">
+        <div class="ticket-qr-wrap">
+          <img class="qr-img" src="scan.png" alt="QR Code">
+        </div>
+      </div>
+
+      <div class="ticket-progress">
+        <div class="ticket-progress-bar" id="qrProgress"></div>
+      </div>
+
+      <p class="ticket-qr-timer">
+        Ce QR code se met à jour toutes les <span class="timer-num" id="qrTimer">1:00</span>
+      </p>
+
+      <div class="ticket-details">
+        <div class="ticket-detail-item">
+          <span class="ticket-detail-label">Catégorie</span>
+          <span class="ticket-detail-value">BRONZE + NORD</span>
+        </div>
+        <div class="ticket-detail-item">
+          <span class="ticket-detail-label">Porte</span>
+          <span class="ticket-detail-value">20</span>
+        </div>
+        <div class="ticket-detail-item">
+          <span class="ticket-detail-label">Zone</span>
+          <span class="ticket-detail-value">Zone 6</span>
+        </div>
+        <div class="ticket-detail-item">
+          <span class="ticket-detail-label">Rang</span>
+          <span class="ticket-detail-value">AO</span>
+        </div>
+        <div class="ticket-detail-siege">
+          <span class="ticket-detail-label">Siège</span>
+          <span class="ticket-detail-value">76</span>
+        </div>
+      </div>
+
+      <button class="ticket-transfer-btn">
+        <svg viewBox="0 0 24 24">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+        Transférer le billet
+      </button>
+
+      <div class="ticket-footer-note">
+        <p class="line1">QR Code unique et personnel.</p>
+        <p class="line2">Valable pour une seule entrée.</p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
