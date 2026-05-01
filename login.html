@@ -2,26 +2,25 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Login System</title>
 </head>
 
 <body style="text-align:center;margin-top:100px">
 
-<h2>kteb id li chriti bach ta5od access</h2>
+<h2>دخل الكود باش تدخل</h2>
 
 <input id="codeInput" placeholder="Enter code">
 <button onclick="login()">Login</button>
 
-<!-- Supabase CDN (FIXED) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const supabaseKey = "sb_publishable_nJUqmzu-JTXQcKKZbws4sQ_dBafI91Q";
 const supabaseUrl = "https://ifvykzswrfcclmwwtler.supabase.co";
+const supabaseKey = "sb_publishable_nJUqmzu-JTXQcKKZbws4sQ_dBafI91Q";
 
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-// device id
+// device ID
 let device = localStorage.getItem("device_id");
 if (!device) {
   device = crypto.randomUUID();
@@ -31,32 +30,51 @@ if (!device) {
 async function login() {
   const code = document.getElementById("codeInput").value;
 
-  const { data, error } = await supabase
-    .from("codes")
-    .select("*")
-    .eq("code", code)
-    .single();
-
-  if (error || !data) {
-    alert("❌ code incorrect");
+  if (!code) {
+    alert("دخل الكود");
     return;
   }
 
-  if (!data.device_id) {
-    await supabase
+  const { data, error } = await supabase
+    .from("codes")
+    .select("*")
+    .eq("code", code);
+
+  if (error) {
+    alert("Supabase error: " + error.message);
+    return;
+  }
+
+  if (!data || data.length === 0) {
+    alert("❌ الكود غير صحيح");
+    return;
+  }
+
+  const row = data[0];
+
+  // أول مرة يستعمل الكود
+  if (!row.device_id) {
+    const { error: updateError } = await supabase
       .from("codes")
       .update({ device_id: device })
       .eq("code", code);
 
+    if (updateError) {
+      alert("Update error: " + updateError.message);
+      return;
+    }
+
     localStorage.setItem("access", "true");
     window.location.href = "index.html";
   }
 
-  else if (data.device_id === device) {
+  // نفس الجهاز
+  else if (row.device_id === device) {
     localStorage.setItem("access", "true");
     window.location.href = "index.html";
   }
 
+  // جهاز آخر
   else {
     alert("❌ هذا الكود مستعمل في جهاز آخر");
   }
