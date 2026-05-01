@@ -12,11 +12,11 @@
 <input id="codeInput" placeholder="Enter code">
 <button onclick="login()">Login</button>
 
-<!-- Supabase CDN -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<!-- Supabase CDN (FIXED) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const supabaseUrl = "https://ifvykzswrfcclmwwtler.supabase.co/rest/v1/";
+const supabaseUrl = "https://ifvykzswrfcclmwwtler.supabase.co";
 const supabaseKey = "sb_publishable_nJUqmzu-JTXQcKKZbws4sQ_dBafI91Q";
 
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
@@ -24,21 +24,20 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 // device id
 let device = localStorage.getItem("device_id");
 if (!device) {
-  device = Math.random().toString(36).substring(2);
+  device = crypto.randomUUID();
   localStorage.setItem("device_id", device);
 }
 
-// لازم تكون global
 async function login() {
   const code = document.getElementById("codeInput").value;
 
-  let { data, error } = await supabase
+  const { data, error } = await supabase
     .from("codes")
     .select("*")
     .eq("code", code)
     .single();
 
-  if (!data) {
+  if (error || !data) {
     alert("❌ code incorrect");
     return;
   }
