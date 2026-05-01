@@ -1932,15 +1932,25 @@
   <script>
     /*login system*/
   
-   function check(){
+   function checkAuth(){
     let id = localStorage.getItem("logged_id");
+    let device = localStorage.getItem("device");
 
-    if(!id){
+    // ❌ ما كاينش login
+    if(!id || !device){
+        window.location.href = "login.html";
+        return;
+    }
+
+    // optional extra protection
+    let used = localStorage.getItem("used_" + id);
+
+    if(!used){
         window.location.href = "login.html";
     }
 }
 
-check();
+checkAuth();
 
 
 
