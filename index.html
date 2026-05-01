@@ -1932,43 +1932,15 @@
   <script>
     /*login system*/
   
-   const API = "http://212.132.120.102:12452";
-
-function device(){
-    let d = localStorage.getItem("device");
-    if(!d){
-        window.location.href="login.html";
-    }
-    return d;
-}
-
-async function check(){
-    let id = localStorage.getItem("id");
+   function check(){
+    let id = localStorage.getItem("logged_id");
 
     if(!id){
-        window.location.href="login.html";
-        return;
-    }
-
-    let res = await fetch(API+"/check",{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({
-            id:id,
-            device:device()
-        })
-    });
-
-    let data = await res.json();
-
-    if(data.status!="ok"){
-        localStorage.clear();
-        window.location.href="login.html";
+        window.location.href = "login.html";
     }
 }
 
 check();
-
 
 
 
