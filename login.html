@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Login</title>
 </head>
+
 <body style="text-align:center;margin-top:100px">
 
 <h2>kteb id li chriti bach ta5od access</h2>
@@ -11,6 +12,7 @@
 <input id="codeInput" placeholder="Enter code">
 <button onclick="login()">Login</button>
 
+<!-- Supabase CDN -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 <script>
@@ -26,10 +28,11 @@ if (!device) {
   localStorage.setItem("device_id", device);
 }
 
+// لازم تكون global
 async function login() {
   const code = document.getElementById("codeInput").value;
 
-  let { data } = await supabase
+  let { data, error } = await supabase
     .from("codes")
     .select("*")
     .eq("code", code)
