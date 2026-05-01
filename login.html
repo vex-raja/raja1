@@ -1,57 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
 </head>
+<body style="text-align:center;margin-top:100px">
 
-<body>
+<h2>kteb id li chriti bach ta5od access</h2>
 
-<h2>Login</h2>
-
-<input id="id" placeholder="Enter ID">
+<input id="codeInput" placeholder="Enter code">
 <button onclick="login()">Login</button>
 
-<script>
-// ⚠️ JSON local simulation (NOT real multi-device sync)
-let db = {
-    "4821": {used:false},
-    "7394": {used:false},
-    "1562": {used:false},
-    "9083": {used:false}
-};
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-// fake device id
-function device(){
-    let d = localStorage.getItem("device");
-    if(!d){
-        d = Math.random().toString(36).substring(2);
-        localStorage.setItem("device", d);
-    }
-    return d;
+<script>
+const supabaseUrl = "https://ifvykzswrfcclmwwtler.supabase.co/rest/v1/";
+const supabaseKey = "sb_publishable_nJUqmzu-JTXQcKKZbws4sQ_dBafI91Q";
+
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+// device id
+let device = localStorage.getItem("device_id");
+if (!device) {
+  device = Math.random().toString(36).substring(2);
+  localStorage.setItem("device_id", device);
 }
 
-function login(){
-    let id = document.getElementById("id").value;
+async function login() {
+  const code = document.getElementById("codeInput").value;
 
-    if(!db[id]){
-        alert("Invalid ID");
-        return;
-    }
+  let { data } = await supabase
+    .from("codes")
+    .select("*")
+    .eq("code", code)
+    .single();
 
-    // check if already used globally (fake)
-    if(db[id].used){
-        alert("ID already used");
-        return;
-    }
+  if (!data) {
+    alert("❌ code incorrect");
+    return;
+  }
 
-    // mark as used
-    db[id].used = true;
+  if (!data.device_id) {
+    await supabase
+      .from("codes")
+      .update({ device_id: device })
+      .eq("code", code);
 
-    localStorage.setItem("logged", id);
-
-    alert("Login success");
+    localStorage.setItem("access", "true");
     window.location.href = "index.html";
+  }
+
+  else if (data.device_id === device) {
+    localStorage.setItem("access", "true");
+    window.location.href = "index.html";
+  }
+
+  else {
+    alert("❌ هذا الكود مستعمل في جهاز آخر");
+  }
 }
 </script>
 
