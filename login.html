@@ -1,78 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Login System</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial;
-    background:#1B2D3B;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
-
-.box{
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    width:300px;
-    text-align:center;
-}
-
-input{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-}
-
-button{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    background:#1B2D3B;
-    color:white;
-    border:none;
-    cursor:pointer;
-}
-
-p{
-    font-size:13px;
-    color:gray;
-}
-</style>
+<title>Login</title>
 </head>
 
 <body>
 
-<div class="box">
-    <h2>Login</h2>
-    <p>het l id li chriti bch ta5od scan</p>
+<h2>Login</h2>
 
-    <input id="id" placeholder="Enter ID">
-    <button onclick="login()">Login</button>
-</div>
+<input id="id" placeholder="Enter ID">
+<button onclick="login()">Login</button>
 
 <script>
-// ---------------- 100 IDS ----------------
-const ids = [
-"4821","7394","1562","9083","6712","2948","8137","5609","1276","9843",
-"3521","7648","2190","6437","8752","4301","5986","7129","8640","3917",
-"2058","9471","6382","7815","4693","8204","1539","6741","9026","3187",
-"5472","7603","2894","6158","9732","1407","8325","6941","2578","4810",
-"7692","3184","6527","8901","2436","9754","1608","5342","7829","4217",
-"6583","9172","3065","7481","5924","8130","2647","9703","1459","6832",
-"5297","8416","3902","7651","2148","6083","9375","4726","8193","2507",
-"6948","1325","8571","4096","7684","3159","6420","9807","2734","5618",
-"7042","8361","1957","6284","9170","3408","7526","4819","8632","2197",
-"6051","9482","3765","8209","1573"
-];
+// ⚠️ JSON local simulation (NOT real multi-device sync)
+let db = {
+    "4821": {used:false},
+    "7394": {used:false},
+    "1562": {used:false},
+    "9083": {used:false}
+};
 
-// ---------------- DEVICE ID ----------------
-function getDevice(){
+// fake device id
+function device(){
     let d = localStorage.getItem("device");
     if(!d){
         d = Math.random().toString(36).substring(2);
@@ -81,28 +31,24 @@ function getDevice(){
     return d;
 }
 
-// ---------------- LOGIN DATABASE ----------------
 function login(){
     let id = document.getElementById("id").value;
 
-    if(!ids.includes(id)){
+    if(!db[id]){
         alert("Invalid ID");
         return;
     }
 
-    let usedKey = "used_" + id;
-
-    // check if already used on THIS device
-    let savedDevice = localStorage.getItem(usedKey);
-
-    if(savedDevice && savedDevice !== getDevice()){
-        alert("This ID already used on another device");
+    // check if already used globally (fake)
+    if(db[id].used){
+        alert("ID already used");
         return;
     }
 
-    // first time use
-    localStorage.setItem(usedKey, getDevice());
-    localStorage.setItem("logged_id", id);
+    // mark as used
+    db[id].used = true;
+
+    localStorage.setItem("logged", id);
 
     alert("Login success");
     window.location.href = "index.html";
