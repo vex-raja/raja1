@@ -1,83 +1,100 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Login System</title>
-</head>
+<title>Login</title>
 
-<body style="text-align:center;margin-top:100px">
-
-<h2>دخل الكود باش تدخل</h2>
-
-<input id="codeInput" placeholder="Enter code">
-<button onclick="login()">Login</button>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-const supabaseUrl = "https://ifvykzswrfcclmwwtler.supabase.co";
-const supabaseKey = "sb_publishable_nJUqmzu-JTXQcKKZbws4sQ_dBafI91Q";
-
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-// device ID
-let device = localStorage.getItem("device_id");
-if (!device) {
-  device = crypto.randomUUID();
-  localStorage.setItem("device_id", device);
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, sans-serif;
+    background: linear-gradient(135deg, #1B2D3B, #0f172a);
 }
 
-async function login() {
-  const code = document.getElementById("codeInput").value;
+.box{
+    width:320px;
+    padding:25px;
+    background:#ffffff10;
+    backdrop-filter: blur(10px);
+    border:1px solid #ffffff20;
+    border-radius:15px;
+    text-align:center;
+    color:white;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
 
-  if (!code) {
-    alert("دخل الكود");
-    return;
-  }
+h1{
+    margin-bottom:10px;
+}
 
-  const { data, error } = await supabase
-    .from("codes")
-    .select("*")
-    .eq("code", code);
+p{
+    font-size:14px;
+    opacity:0.8;
+    margin-bottom:20px;
+}
 
-  if (error) {
-    alert("Supabase error: " + error.message);
-    return;
-  }
+input{
+    width:90%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    margin-bottom:15px;
+    outline:none;
+    text-align:center;
+}
 
-  if (!data || data.length === 0) {
-    alert("❌ الكود غير صحيح");
-    return;
-  }
+button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#22c55e;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-  const row = data[0];
+button:hover{
+    background:#16a34a;
+}
 
-  // أول مرة يستعمل الكود
-  if (!row.device_id) {
-    const { error: updateError } = await supabase
-      .from("codes")
-      .update({ device_id: device })
-      .eq("code", code);
+.error{
+    color:#ff4d4d;
+    margin-top:10px;
+    font-size:13px;
+}
+</style>
+</head>
 
-    if (updateError) {
-      alert("Update error: " + updateError.message);
-      return;
+<body>
+
+<div class="box">
+    <h1>Login</h1>
+    
+    <p>khasek thet lcode bch td5ol</p>
+
+    <input type="password" id="code" placeholder="Enter code">
+
+    <button onclick="login()">Enter</button>
+
+    <div class="error" id="error"></div>
+</div>
+
+<script>
+function login(){
+    let code = document.getElementById("code").value;
+
+    if(code === "greenboysvexhader"){
+        localStorage.setItem("logged","true");
+        window.location.href = "index.html";
+    } else {
+        document.getElementById("error").innerText = "Wrong code!";
     }
-
-    localStorage.setItem("access", "true");
-    window.location.href = "index.html";
-  }
-
-  // نفس الجهاز
-  else if (row.device_id === device) {
-    localStorage.setItem("access", "true");
-    window.location.href = "index.html";
-  }
-
-  // جهاز آخر
-  else {
-    alert("❌ هذا الكود مستعمل في جهاز آخر");
-  }
 }
 </script>
 
